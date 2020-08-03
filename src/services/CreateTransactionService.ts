@@ -31,13 +31,13 @@ class CreateTransactionService {
 
     const transactionCategory = await categoryRepository.findOne({
       where: {
-        category: title,
+        title,
       },
     });
 
     if (!transactionCategory) {
       transactionCategory = categoryRepository.create({
-        title: category,
+        title,
       });
 
       await categoryRepository.save(transactionCategory);
